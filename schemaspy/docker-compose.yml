@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  schemaspy:
+    image: schemaspy/schemaspy
+    volumes:
+      - ./output:/output
+      - ./drivers:/drivers
+      - ./property/config.properties:/schemaspy.properties
+    command: ["-debug"]
+    networks:
+        - sample_network
+networks:
+    sample_network:
+        external: true

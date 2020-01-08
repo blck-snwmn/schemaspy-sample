@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  server:
+    image: nginx
+    restart: always
+    ports:
+      - 8089:80
+    volumes:
+      - ../schemaspy/output:/usr/share/nginx/html:ro
+    networks:
+        - sample_network
+networks:
+    sample_network:
+        external: true
